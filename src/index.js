@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Home from "./Home";
+import About from "./About";
+import Login from "./Login";
+import Signup from "./Signup";
+import Messages from "./Messages";
+import NavBar from "./NavBar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-const Home = () => {
-  return (
-    <Router>
-      <Route path="/" component={Welcome} />
-    </Router>
-  );
-};
 
-const Welcome = () => {
-  return <div>TEST</div>;
-};
-
-ReactDOM.render(<Home />, document.getElementById("root"));
+ReactDOM.render(
+  <Router>
+    <div>
+      <NavBar />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/messages" component={Messages} />
+    </div>
+  </Router>,
+  document.getElementById("root")
+);
